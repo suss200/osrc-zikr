@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import ScrollToTop from "@/components/scrollTop";
 import ZikrItem from "@/components/zikrItem";
 import { nightAzkar } from "../../data/nightAzkar";
+
 export default function NightPage() {
     return (
         <div className="min-h-screen bg-[#0B1110]">

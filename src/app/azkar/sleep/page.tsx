@@ -1,6 +1,6 @@
 import Header from "@/components/header";
 import ZikrItem from "@/components/zikrItem";
-import { sleepAzkar } from "../data/sleepAzkar";
+import { sleepAzkar } from "@/app/data/sleepAzkar";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scrollTop";
 
