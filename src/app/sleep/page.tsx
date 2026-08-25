@@ -22,9 +22,9 @@ export default function SleepPage() {
                 pt-32
             ">
                 <h1 className="text-4xl font-bold text-[#F3F4F6]">
-                    أذكار الصباح
+                    أذكار النوم
                 </h1>
-
+<div className="h-px w-full bg-white/10" />
                 {sleepAzkar.map((zikr, index) => (
                     <ZikrItem
                         key={index}

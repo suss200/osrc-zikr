@@ -24,7 +24,7 @@ export default function MorningPage() {
                 <h1 className="text-4xl font-bold text-[#F3F4F6]">
                     أذكار الصباح
                 </h1>
-
+<div className="h-px w-full bg-white/10" />
                 {morningAzkar.map((zikr, index) => (
                     <ZikrItem
                         key={index}

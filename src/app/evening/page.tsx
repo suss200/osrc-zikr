@@ -23,7 +23,7 @@ export default function NightPage() {
                 <h1 className="text-4xl font-bold text-[#F3F4F6]">
                     أذكار المساء
                 </h1>
-
+<div className="h-px w-full bg-white/10" />
                 {nightAzkar.map((zikr, index) => (
                     <ZikrItem
                         key={index}
