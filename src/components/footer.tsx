@@ -48,7 +48,7 @@ export default function Footer() {
                     href="/sources"
                     className="
                         absolute
-                        right-15
+                        right-10
                         top-1/2
                         flex
                         -translate-y-1/2
@@ -71,7 +71,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="
                         absolute
-                        left-15
+                        left-10
                         top-1/2
                         flex
                         -translate-y-1/2

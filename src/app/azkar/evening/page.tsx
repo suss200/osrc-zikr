@@ -2,10 +2,13 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import ScrollToTop from "@/components/scrollTop";
 import ZikrItem from "@/components/zikrItem";
-import { nightAzkar } from "../../data/nightAzkar";
+import nightAzkar from "../../data/nightAzkar.json";
+import PageTransition from "@/components/pageTransition";
+
 
 export default function NightPage() {
     return (
+        <PageTransition>
         <div className="min-h-screen bg-[#0B1110]">
             <Header />
 
@@ -40,6 +43,7 @@ export default function NightPage() {
             <ScrollToTop/>
             
         </div>
+        </PageTransition>
     );
 }
 

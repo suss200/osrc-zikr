@@ -1,10 +1,12 @@
 import ZikrCard from "@/components/zikrCard";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import PageTransition from "@/components/pageTransition";
 export default function AzkarCategories() {
   return (
+    
     <>
-
+<PageTransition>
 <div className="flex min-h-screen flex-col overflow-hidden bg-[#0B1110]">    
   <Header/>
     <main className="mx-auto flex flex-1 w-full max-w-2xl flex-col items-center justify-center gap-6 px-6 py-16 pt-24">
@@ -15,13 +17,14 @@ export default function AzkarCategories() {
     إختر تصنيف الاذكار اللتي ستقرأها
 </h2>
 
-<ZikrCard name="أذكار الصباح" redirectLink="/azkar/morning" backgroundGif="/morning.gif"/>
+<ZikrCard name="أذكار الصباح" redirectLink="/azkar/morning" backgroundGif="/morning.gif "/>
 <ZikrCard name="أذكار المساء" redirectLink="/azkar/evening" backgroundGif="/night.gif" />
 <ZikrCard name="أذكار النوم" redirectLink="/azkar/sleep" backgroundGif="/sleep.gif" />
 
       </main>
 <Footer/>
     </div>
+    </PageTransition>
     </>
   );
 }

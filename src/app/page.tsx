@@ -4,6 +4,7 @@ import ScrollToTop from "@/components/scrollTop";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ScrollToAbout from "@/components/scrollToAbout";
+
 import {
     FaBookQuran,
     FaCode,

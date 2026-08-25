@@ -6,6 +6,8 @@ import Footer from "@/components/footer";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { FaBookQuran } from "react-icons/fa6";
 
+import PageTransition from "@/components/pageTransition";
+
 const sources = [
     {
         name: "الدرر السنية",
@@ -27,6 +29,7 @@ const sources = [
 
 export default function Sources() {
     return (
+        <PageTransition>
         <div
             dir="rtl"
             className="
@@ -308,6 +311,8 @@ export default function Sources() {
             </main>
 
             <Footer />
+            
         </div>
+        </PageTransition>
     );
 }

@@ -1,11 +1,13 @@
 import Header from "@/components/header";
 import ZikrItem from "@/components/zikrItem";
-import { sleepAzkar } from "@/app/data/sleepAzkar";
+import sleepAzkar  from "@/app/data/sleepAzkar.json";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scrollTop";
+import PageTransition from "@/components/pageTransition";
 
 export default function SleepPage() {
     return (
+        <PageTransition>
         <div className="min-h-screen bg-[#0B1110]">
             <Header />
 
@@ -39,6 +41,7 @@ export default function SleepPage() {
             <Footer/>
             <ScrollToTop/>
         </div>
+        </PageTransition>
     );
 }
 

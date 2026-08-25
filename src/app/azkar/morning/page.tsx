@@ -1,11 +1,13 @@
 import Header from "@/components/header";
 import ZikrItem from "@/components/zikrItem";
-import { morningAzkar } from "@/app/data/morningAzkar";
+import  morningAzkar  from "@/app/data/morningAzkar.json";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scrollTop";
+import PageTransition from "@/components/pageTransition";
 
 export default function MorningPage() {
     return (
+        <PageTransition>
         <div className="min-h-screen bg-[#0B1110]">
             <Header />
 
@@ -38,7 +40,10 @@ export default function MorningPage() {
 
             <Footer/>
             <ScrollToTop/>
+            
         </div>
+
+        </PageTransition>
     );
 }
 
