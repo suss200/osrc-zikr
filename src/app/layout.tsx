@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
                 <Loading />
 
                 {children}
+                <Analytics />
             </body>
         </html>
     );
