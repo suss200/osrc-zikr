@@ -15,9 +15,9 @@ export default function AzkarCategories() {
     إختر تصنيف الاذكار اللتي ستقرأها
 </h2>
 
-<ZikrCard name="أذكار الصباح" redirectLink="/morning" backgroundGif="/morning.gif"/>
-<ZikrCard name="أذكار المساء" redirectLink="/evening" backgroundGif="/night.gif" />
-<ZikrCard name="أذكار النوم" redirectLink="/sleep" backgroundGif="/sleep.gif" />
+<ZikrCard name="أذكار الصباح" redirectLink="/azkar/morning" backgroundGif="/morning.gif"/>
+<ZikrCard name="أذكار المساء" redirectLink="/azkar/evening" backgroundGif="/night.gif" />
+<ZikrCard name="أذكار النوم" redirectLink="/azkar/sleep" backgroundGif="/sleep.gif" />
 
       </main>
 <Footer/>
