@@ -558,7 +558,7 @@ export default function Home() {
                     </p>
 
                     <a
-                        href="https://github.com/suss200"
+                        href="https://github.com/suss200/osrc-zikr"
                         target="_blank"
                         rel="noopener noreferrer"
 

@@ -75,7 +75,7 @@ export default function Footer() {
 
 
                 <Link
-                    href="https://github.com/suss200"
+                    href="https://github.com/suss200/osrc-zikr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="

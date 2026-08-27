@@ -284,7 +284,7 @@ export default function Sources() {
                     </p>
 
                     <Link
-                        href="https://github.com/suss200"
+                        href="https://github.com/suss200/osrc-zikr"
                         target="_blank"
                         className="
                             mt-6
