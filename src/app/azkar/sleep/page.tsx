@@ -7,9 +7,10 @@ import PageTransition from "@/components/pageTransition";
 
 export default function SleepPage() {
     return (
+        <>
         <PageTransition>
-        <div className="min-h-screen bg-[#0B1110]">
-            <Header />
+        <div className="min-h-screen bg-[var(--c-page)] transition-colors duration-300">
+            <Header fixed/>
 
             <main className="
                 mx-auto
@@ -23,10 +24,10 @@ export default function SleepPage() {
                 pb-16
                 pt-32
             ">
-                <h1 className="text-4xl font-bold text-[#F3F4F6]">
+                <h1 className="text-4xl font-bold text-[var(--c-text)]">
                     أذكار النوم
                 </h1>
-<div className="h-px w-full bg-white/10" />
+<div className="h-px w-full bg-[var(--c-divider)]" />
                 {sleepAzkar.map((zikr, index) => (
                     <ZikrItem
                         key={index}
@@ -39,9 +40,10 @@ export default function SleepPage() {
             </main>
 
             <Footer/>
-            <ScrollToTop/>
         </div>
         </PageTransition>
+        <ScrollToTop/>
+        </>
     );
 }
 

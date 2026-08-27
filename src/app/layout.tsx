@@ -1,10 +1,10 @@
-
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 
 import "./globals.css";
 
 import Loading from "./loader";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
     variable: "--font-ibm-plex-arabic",
@@ -15,8 +15,6 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
     title: "OSRC Zikr",
     description: "مشروع عربي مفتوح المصدر للأذكار اليومية",
-
-
 };
 
 export default function RootLayout({
@@ -28,12 +26,14 @@ export default function RootLayout({
         <html
             lang="ar"
             dir="rtl"
+            suppressHydrationWarning
             className={`${ibmPlexSansArabic.variable} h-full scroll-smooth antialiased`}
         >
             <body className="min-h-full flex flex-col">
-                <Loading />
-
-                {children}
+                <ThemeProvider>
+                    <Loading />
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

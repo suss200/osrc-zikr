@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import ScrollToTop from "@/components/scrollTop";
@@ -9,22 +8,22 @@ import ZikrItem from "@/components/zikrItem";
 import PageTransition from "@/components/pageTransition";
 import TypePicker from "@/components/typePicker";
 
-import morningAzkar from "../../data/morningAzkar.json";
-import shortMorningAzkar from "../../data/shortMorningAzkar.json";
+import nightAzkar from "../../data/nightAzkar.json";
+import shortNightAzkar from "../../data/shortNightAzkar.json";
 
-export default function MorningPage() {
+export default function NightPage() {
     const [selectedType, setSelectedType] = useState(1);
 
     const azkar =
         selectedType === 1
-            ? morningAzkar
-            : shortMorningAzkar;
+            ? nightAzkar
+            : shortNightAzkar;
 
     return (
         <>
             <PageTransition>
                 <div className="min-h-screen bg-[var(--c-page)] transition-colors duration-300">
-                    <Header fixed/>
+                    <Header fixed />
 
                     <main
                         className="
@@ -41,7 +40,7 @@ export default function MorningPage() {
                         "
                     >
                         <h1 className="text-4xl font-bold text-[var(--c-text)]">
-                            أذكار الصباح
+                            أذكار المساء
                         </h1>
 
                         <div className="h-px w-full bg-[var(--c-divider)]" />

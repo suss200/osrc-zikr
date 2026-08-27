@@ -14,17 +14,17 @@ export default function ScrollToAbout() {
             className="
                 rounded-xl
                 border
-                border-[#35443F]
-                bg-[#0E1614]/70
+                border-[var(--c-border-strong)]
+                bg-[var(--c-glass)]
                 px-8
                 py-4
                 font-semibold
-                text-[#F3F4F6]
+                text-[var(--c-text)]
                 backdrop-blur-sm
                 transition-colors
                 duration-300
-                hover:border-[#6EE7B7]
-                hover:text-[#6EE7B7]
+                hover:border-[var(--c-accent)]
+                hover:text-[var(--c-accent)]
                 hover:cursor-[pointer]
             "
         >

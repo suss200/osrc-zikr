@@ -15,14 +15,14 @@ export default function ZikrCard(props:ZikrCardProps){
         group   
         w-full
         rounded-2xl
-        border border-[#24332F]
-        bg-[#111A18]
+        border border-[var(--c-border)]
+        bg-[var(--c-card)]
         p-9
         transition duration-300
-        hover:bg-[#172420]
+        hover:bg-[var(--c-elevated)]
         text-center
         text-lg
-        text-[#F3F4F6]
+        text-[var(--c-text)]
         font-semibold
         relative
         h-25

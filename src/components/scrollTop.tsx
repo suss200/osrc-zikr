@@ -12,7 +12,7 @@ export default function ScrollToTop() {
     useEffect(() => {
 
         const handleScroll = () => {
-            setIsVisible(window.scrollY > 400);
+            setIsVisible(window.scrollY > 80);
         };
 
         const footer = document.getElementById("site-footer");
@@ -32,7 +32,8 @@ export default function ScrollToTop() {
             observer.observe(footer);
         }
 
-        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
@@ -67,19 +68,20 @@ export default function ScrollToTop() {
                 w-12
                 items-center
                 justify-center
+                cursor-pointer
                 rounded-xl
                 border
-                border-[#24332F]
-                bg-[#111A18]
-                text-[#6EE7B7]
+                border-[var(--c-border)]
+                bg-[var(--c-card)]
+                text-[var(--c-accent)]
                 shadow-lg
                 shadow-black/20
                 transition-all
                 duration-300
                 ease-in-out
-                hover:border-[#6EE7B7]
-                hover:bg-[#17221F]
-                hover:text-[#86efc5]
+                hover:border-[var(--c-accent)]
+                hover:bg-[var(--c-hover-strong)]
+                hover:text-[var(--c-accent-light)]
                 ${
                     shouldShow
                         ? "translate-y-0 opacity-100"

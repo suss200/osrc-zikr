@@ -11,10 +11,12 @@ export default function Footer() {
         <footer 
             id="site-footer"
         className="
-            bg-[#0E1614]
+            bg-[var(--c-nav)]
             border-t
-            border-[#24332F]
+            border-[var(--c-border)]
             w-full
+            transition-colors
+            duration-300
         ">
 
             <div className="
@@ -31,14 +33,21 @@ export default function Footer() {
                     alt="OSRC Zikr"
                     width={90}
                     height={30}
-                    className="h-auto w-[90px]"
+                    className="h-auto w-[90px] logo-dark"
+                />
+                <Image
+                    src="/dark-logo.png"
+                    alt="OSRC Zikr"
+                    width={90}
+                    height={30}
+                    className="h-auto w-[90px] logo-light"
                 />
 
-                <p className="text-sm text-[#9CA3AF]">
+                <p className="text-sm text-[var(--c-text-muted)]">
                     رفيقك اليومي للأذكار
                 </p>
 
-                <p className="text-xs text-[#6B7280]">
+                <p className="text-xs text-[var(--c-text-dim)]">
                     © 2026 A$R
                 </p>
 
@@ -55,10 +64,10 @@ export default function Footer() {
                         items-center
                         gap-2
                         text-sm
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                         transition-colors
                         duration-200
-                        hover:text-[#F3F4F6]
+                        hover:text-[var(--c-text)]
                     "
                 >
                     المصادر
@@ -78,10 +87,10 @@ export default function Footer() {
                         items-center
                         gap-2
                         text-sm
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                         transition-colors
                         duration-200
-                        hover:text-[#F3F4F6]
+                        hover:text-[var(--c-text)]
                     "
                 >
                     <FaGithub size={20} />

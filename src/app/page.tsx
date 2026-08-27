@@ -18,9 +18,9 @@ export default function Home() {
     return (
         <div
             dir="rtl"
-            className="min-h-screen bg-[#0B1110] text-[#F3F4F6]"
+            className="min-h-screen bg-[var(--c-page)] text-[var(--c-text)] transition-colors duration-300"
         >
-            <Header />
+            <Header fixed/>
 
             {/* Hero Section */}
             <section
@@ -36,12 +36,11 @@ export default function Home() {
                 "
                 style={{backgroundImage: "url('/hero.jpg')",}} >
 
-
                 {/* Overlay */}
                 <div className="
                     absolute
                     inset-0
-                     bg-[#0B1110]/80
+                     bg-[var(--c-overlay)]
                 " />
 
                 {/* Background Glow */}
@@ -55,7 +54,7 @@ export default function Home() {
                     -translate-x-1/2
                     -translate-y-1/2
                     rounded-full
-                    bg-[#6EE7B7]/10
+                    bg-[var(--c-glow)]
                     blur-3xl
                 " />
 
@@ -68,11 +67,15 @@ export default function Home() {
     h-40
     w-full
     bg-gradient-to-t
-    from-[#0B1110]
-    via-[#0B1110]/70
+    from-[var(--c-grad-from)]
+    via-[var(--c-grad-via)]
     to-transparent
     pointer-events-none
 " />
+
+
+
+
 
 
 
@@ -92,7 +95,7 @@ export default function Home() {
                         text-5xl
                         font-bold
                         tracking-tight
-                        text-white
+                        text-[var(--c-hero-title)]
                         md:text-7xl
                     ">
                         OPEN SOURCE ZIKR
@@ -105,7 +108,7 @@ export default function Home() {
                         text-lg
                         font-medium
                         leading-9
-                        text-[#D1D5DB]
+                        text-[var(--c-text-body)]
                         md:text-xl
                     ">
                         رفيقك اليومي للأذكار
@@ -116,7 +119,7 @@ export default function Home() {
                         mt-3
                         max-w-2xl
                         leading-8
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                     ">
                         مشروع عربي مفتوح المصدر يهدف إلى توفير تجربة
                         بسيطة وهادئة لقراءة الأذكار اليومية ومتابعة
@@ -137,22 +140,18 @@ export default function Home() {
     href="/azkar-categories"
     className="
         rounded-xl
-        bg-[#6EE7B7]
+        bg-[var(--c-accent)]
         px-8
         py-4
         font-semibold
-        text-[#0B1110]
+        text-[var(--c-on-accent)]
         transition-colors
         duration-300
-        hover:bg-[#52C795]
+        hover:bg-[var(--c-accent-strong)]
     "
 >
     ابدأ أذكارك
 </Link>
-
-
-
-
 
 
 <ScrollToAbout/>
@@ -167,7 +166,7 @@ export default function Home() {
                 id="about"
                 className="
                     border-t
-                    border-[#1C2925]
+                    border-[var(--c-border-soft)]
                     px-6
                     py-24
                 "
@@ -180,7 +179,7 @@ export default function Home() {
                             text-sm
                             font-semibold
                             tracking-widest
-                            text-[#6EE7B7]
+                            text-[var(--c-accent)]
                         ">
                             عن المشروع
                         </p>
@@ -199,7 +198,7 @@ export default function Home() {
                             mt-6
                             max-w-3xl
                             leading-9
-                            text-[#9CA3AF]
+                            text-[var(--c-text-muted)]
                         ">
                             OSRC Zikr هو مشروع عربي مفتوح المصدر يهدف
                             إلى توفير تجربة بسيطة وهادئة لقراءة الأذكار
@@ -219,14 +218,14 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             text-center
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
                             <div className="
                                 mx-auto
@@ -236,8 +235,8 @@ export default function Home() {
                                 items-center
                                 justify-center
                                 rounded-xl
-                                bg-[#6EE7B7]/10
-                                text-[#6EE7B7]
+                                bg-[var(--c-accent-10)]
+                                text-[var(--c-accent)]
                             ">
                                 <FaCode />
                             </div>
@@ -250,7 +249,7 @@ export default function Home() {
                                 mt-3
                                 text-sm
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 تم بناء المشروع باستخدام Next.js وReact
                                 مع واجهة حديثة وسريعة.
@@ -261,14 +260,14 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             text-center
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
                             <div className="
                                 mx-auto
@@ -278,8 +277,8 @@ export default function Home() {
                                 items-center
                                 justify-center
                                 rounded-xl
-                                bg-[#6EE7B7]/10
-                                text-[#6EE7B7]
+                                bg-[var(--c-accent-10)]
+                                text-[var(--c-accent)]
                             ">
                                 <FaGithub />
                             </div>
@@ -292,7 +291,7 @@ export default function Home() {
                                 mt-3
                                 text-sm
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 الكود متاح للجميع للاطلاع والمساهمة
                                 في تطوير المشروع.
@@ -303,14 +302,14 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             text-center
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
                             <div className="
                                 mx-auto
@@ -320,8 +319,8 @@ export default function Home() {
                                 items-center
                                 justify-center
                                 rounded-xl
-                                bg-[#6EE7B7]/10
-                                text-[#6EE7B7]
+                                bg-[var(--c-accent-10)]
+                                text-[var(--c-accent)]
                             ">
                                 <FaHeart />
                             </div>
@@ -334,7 +333,7 @@ export default function Home() {
                                 mt-3
                                 text-sm
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 واجهة بسيطة تضع الذكر في المقدمة
                                 وتقلل المشتتات قدر الإمكان.
@@ -352,7 +351,7 @@ export default function Home() {
                 id="features"
                 className="
                     border-t
-                    border-[#1C2925]
+                    border-[var(--c-border-soft)]
                     px-6
                     py-24
                 "
@@ -365,7 +364,7 @@ export default function Home() {
                             text-sm
                             font-semibold
                             tracking-widest
-                            text-[#6EE7B7]
+                            text-[var(--c-accent)]
                         ">
                             المميزات
                         </p>
@@ -384,7 +383,7 @@ export default function Home() {
                             mt-5
                             max-w-2xl
                             leading-8
-                            text-[#9CA3AF]
+                            text-[var(--c-text-muted)]
                         ">
                             كل جزء في OSRC Zikr مصمم ليجعل الوصول إلى
                             الذكر وقراءته ومتابعة عدده أمرًا بسيطًا.
@@ -403,15 +402,15 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
-                            <FaSun className="text-2xl text-[#6EE7B7]" />
+                            <FaSun className="text-2xl text-[var(--c-accent)]" />
 
                             <h3 className="mt-5 text-xl font-bold">
                                 أذكار الصباح
@@ -420,7 +419,7 @@ export default function Home() {
                             <p className="
                                 mt-3
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 ابدأ يومك بأذكار الصباح في صفحة منظمة
                                 وسهلة الاستخدام.
@@ -431,15 +430,15 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
-                            <FaMoon className="text-2xl text-[#6EE7B7]" />
+                            <FaMoon className="text-2xl text-[var(--c-accent)]" />
 
                             <h3 className="mt-5 text-xl font-bold">
                                 أذكار المساء والنوم
@@ -448,7 +447,7 @@ export default function Home() {
                             <p className="
                                 mt-3
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 اختم يومك بالأذكار واجعلها جزءًا من
                                 روتينك اليومي.
@@ -459,15 +458,15 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
-                            <FaBookQuran className="text-2xl text-[#6EE7B7]" />
+                            <FaBookQuran className="text-2xl text-[var(--c-accent)]" />
 
                             <h3 className="mt-5 text-xl font-bold">
                                 محتوى منظم
@@ -476,7 +475,7 @@ export default function Home() {
                             <p className="
                                 mt-3
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 كل ذكر يحتوي على عدد مرات التكرار
                                 والفضل والمصدر عند توفره.
@@ -487,15 +486,15 @@ export default function Home() {
                         <div className="
                             rounded-2xl
                             border
-                            border-[#24332F]
-                            bg-[#111A18]
+                            border-[var(--c-border)]
+                            bg-[var(--c-card)]
                             p-7
                             transition-all
                             duration-300
                             hover:-translate-y-1
-                            hover:border-[#6EE7B7]/40
+                            hover:border-[var(--c-accent-40)]
                         ">
-                            <FaHeart className="text-2xl text-[#6EE7B7]" />
+                            <FaHeart className="text-2xl text-[var(--c-accent)]" />
 
                             <h3 className="mt-5 text-xl font-bold">
                                 عداد تفاعلي
@@ -504,7 +503,7 @@ export default function Home() {
                             <p className="
                                 mt-3
                                 leading-7
-                                text-[#9CA3AF]
+                                text-[var(--c-text-muted)]
                             ">
                                 تابع عدد مرات الذكر من خلال عداد
                                 تصاعدي ومؤشر تقدم واضح.
@@ -525,8 +524,8 @@ export default function Home() {
                     max-w-4xl
                     rounded-3xl
                     border
-                    border-[#24332F]
-                    bg-[#111A18]
+                    border-[var(--c-border)]
+                    bg-[var(--c-card)]
                     px-6
                     py-16
                     text-center
@@ -535,7 +534,7 @@ export default function Home() {
                     <FaGithub className="
                         mx-auto
                         text-4xl
-                        text-[#6EE7B7]
+                        text-[var(--c-accent)]
                     " />
 
                     <h2 className="
@@ -551,7 +550,7 @@ export default function Home() {
                         mt-5
                         max-w-2xl
                         leading-8
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                     ">
                         المشروع مفتوح المصدر ومتاح للجميع. يمكنك
                         الاطلاع على الكود، اقتراح تحسينات، أو المساهمة
@@ -570,18 +569,17 @@ export default function Home() {
                         gap-3
                         rounded-xl
                         border
-                        border-[#6EE7B7]
-                        bg-[#6EE7B7]
+                        border-[var(--c-accent)]
+                        bg-[var(--c-accent)]
                         px-8
                         py-4
                         font-semibold
-                        text-[#0B1110]
+                        text-[var(--c-on-accent)]
                         transition-all
                         duration-300
                         hover:bg-transparent
-                        hover:text-[#6EE7B7]
+                        hover:text-[var(--c-accent)]
 "
-
 
                     >
                         <FaGithub />

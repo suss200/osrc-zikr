@@ -29,25 +29,29 @@ export default function ZikrItem(props: ZikrItemProps) {
             w-full
             rounded-2xl
             border
-            border-[#24332F]
-            bg-[#111A18]
+            border-[var(--c-border)]
+            bg-[var(--c-card)]
             p-8
             text-center
+            transition-colors
+            duration-300
         ">
 
             <p className="
                 rounded-xl
-                bg-[#080C0B]
+                bg-[var(--c-deep)]
                 p-5
                 text-lg
                 font-semibold
                 leading-9
-                text-[#F3F4F6]
+                text-[var(--c-text)]
+                transition-colors
+                duration-300
             ">
                 {props.text}
             </p>
 
-            <div className="mt-4 text-sm text-[#6EE7B7]">
+            <div className="mt-4 text-sm text-[var(--c-accent)]">
                 {props.count} مرات
             </div>
 
@@ -57,11 +61,11 @@ export default function ZikrItem(props: ZikrItemProps) {
                     text-right
                     text-sm
                     leading-7
-                    text-[#9CA3AF]
+                    text-[var(--c-text-muted)]
                 ">
                     {props.virtue && (
                         <p>
-                            <span className="font-semibold text-[#6EE7B7]">
+                            <span className="font-semibold text-[var(--c-accent)]">
                                 فضله:
                             </span>{" "}
                             {props.virtue}
@@ -70,7 +74,7 @@ export default function ZikrItem(props: ZikrItemProps) {
 
                     {props.reference && (
                         <p>
-                            <span className="font-semibold text-[#6EE7B7]">
+                            <span className="font-semibold text-[var(--c-accent)]">
                                 صحته:
                             </span>{" "}
                             {props.reference}
@@ -91,15 +95,16 @@ export default function ZikrItem(props: ZikrItemProps) {
                     items-center
                     justify-center
                     rounded-xl
+                    cursor-pointer
                     text-base
                     font-semibold
-                    text-[#F3F4F6]
                     transition-colors
                     duration-300
+                    disabled:cursor-default
                     ${
                         currentCount === props.count
-                            ? "bg-[#166534]"
-                            : "bg-[#24332F] hover:bg-[#30443E]"
+                            ? "bg-[var(--c-success)] text-white"
+                            : "bg-[var(--c-btn)] hover:bg-[var(--c-btn-hover)] text-[var(--c-btn-text)]"
                     }
                 `}
             >
@@ -115,7 +120,7 @@ export default function ZikrItem(props: ZikrItemProps) {
         h-7
         w-7
         rounded-full
-        bg-[conic-gradient(#6EE7B7_var(--progress),#24332F_var(--progress))]
+        bg-[conic-gradient(var(--c-accent)_var(--progress),var(--c-progress-track)_var(--progress))]
         transition-[--progress]
         duration-500
     "
@@ -123,28 +128,34 @@ export default function ZikrItem(props: ZikrItemProps) {
         "--progress": `${progress}%`,
     } as React.CSSProperties}
 >
-    <div className="
-        absolute
-        inset-[3px]
-        rounded-full
-        bg-[#24332F]
-    " />
+    <div
+        className="
+            absolute
+            inset-[3px]
+            rounded-full
+            bg-[var(--c-progress-inner)]
+            transition-colors
+            duration-300
+        "
+    />
 </div>
-            </button>
+
+    </button>
 
             <button
                 onClick={resetCount}
                 className="
                     mt-3
+                    cursor-pointer
                     rounded-lg
                     px-4
                     py-2
                     text-sm
-                    text-[#9CA3AF]
+                    text-[var(--c-text-muted)]
                     transition-colors
                     duration-200
-                    hover:bg-[#1A2421]
-                    hover:text-[#F3F4F6]
+                    hover:bg-[var(--c-elevated)]
+                    hover:text-[var(--c-text)]
                 "
             >
                 ↻ إعادة العد

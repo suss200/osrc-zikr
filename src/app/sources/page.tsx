@@ -34,11 +34,13 @@ export default function Sources() {
             dir="rtl"
             className="
                 min-h-screen
-                bg-[#0B1110]
-                text-[#F3F4F6]
+                bg-[var(--c-page)]
+                text-[var(--c-text)]
+                transition-colors
+                duration-300
             "
         >
-            <Header />
+            <Header fixed/>
 
             <main className="
                 mx-auto
@@ -56,7 +58,7 @@ export default function Sources() {
                         text-sm
                         font-semibold
                         tracking-widest
-                        text-[#6EE7B7]
+                        text-[var(--c-accent)]
                     ">
                         المصادر
                     </p>
@@ -75,7 +77,7 @@ export default function Sources() {
                         mt-6
                         max-w-2xl
                         leading-8
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                     ">
                         نحرص في OSRC Zikr على إسناد الأذكار والأحاديث
                         إلى مصادر موثوقة، مع توضيح المرجع المستخدم
@@ -102,12 +104,12 @@ export default function Sources() {
                                 className="
                                     rounded-2xl
                                     border
-                                    border-[#24332F]
-                                    bg-[#111A18]
+                                    border-[var(--c-border)]
+                                    bg-[var(--c-card)]
                                     p-7
                                     transition-colors
                                     duration-300
-                                    hover:border-[#6EE7B7]/40
+                                    hover:border-[var(--c-accent-40)]
                                 "
                             >
 
@@ -126,8 +128,8 @@ export default function Sources() {
                                         items-center
                                         justify-center
                                         rounded-xl
-                                        bg-[#6EE7B7]/10
-                                        text-[#6EE7B7]
+                                        bg-[var(--c-accent-10)]
+                                        text-[var(--c-accent)]
                                     ">
                                         <Icon />
                                     </div>
@@ -145,12 +147,12 @@ export default function Sources() {
                                             justify-center
                                             rounded-lg
                                             border
-                                            border-[#24332F]
-                                            text-[#9CA3AF]
+                                            border-[var(--c-border)]
+                                            text-[var(--c-text-muted)]
                                             transition-colors
                                             duration-300
-                                            hover:border-[#6EE7B7]
-                                            hover:text-[#6EE7B7]
+                                            hover:border-[var(--c-accent)]
+                                            hover:text-[var(--c-accent)]
                                         "
                                     >
                                         <FaExternalLinkAlt className="text-sm" />
@@ -170,7 +172,7 @@ export default function Sources() {
                                 <p className="
                                     mt-2
                                     text-sm
-                                    text-[#6EE7B7]
+                                    text-[var(--c-accent)]
                                 ">
                                     {source.domain}
                                 </p>
@@ -178,7 +180,7 @@ export default function Sources() {
                                 <p className="
                                     mt-5
                                     leading-8
-                                    text-[#9CA3AF]
+                                    text-[var(--c-text-muted)]
                                 ">
                                     {source.description}
                                 </p>
@@ -194,10 +196,10 @@ export default function Sources() {
                                         items-center
                                         gap-2
                                         font-medium
-                                        text-[#6EE7B7]
+                                        text-[var(--c-accent)]
                                         transition-colors
                                         duration-300
-                                        hover:text-[#86efc5]
+                                        hover:text-[var(--c-accent-light)]
                                     "
                                 >
                                     زيارة المصدر
@@ -216,8 +218,8 @@ export default function Sources() {
                     mt-16
                     rounded-2xl
                     border
-                    border-[#24332F]
-                    bg-[#111A18]
+                    border-[var(--c-border)]
+                    bg-[var(--c-card)]
                     p-8
                     text-center
                 ">
@@ -234,7 +236,7 @@ export default function Sources() {
                         mt-5
                         max-w-3xl
                         leading-8
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                     ">
                         يتم إدخال الأذكار في المشروع بشكل يدوي، مع
                         تسجيل عدد مرات التكرار والمرجع والفضل عند توفره.
@@ -250,8 +252,8 @@ export default function Sources() {
                     mt-8
                     rounded-2xl
                     border
-                    border-[#24332F]
-                    bg-[#0E1614]
+                    border-[var(--c-border)]
+                    bg-[var(--c-nav)]
                     p-8
                     text-center
                 ">
@@ -259,7 +261,7 @@ export default function Sources() {
                     <FaGithub className="
                         mx-auto
                         text-3xl
-                        text-[#6EE7B7]
+                        text-[var(--c-accent)]
                     " />
 
                     <h2 className="
@@ -275,7 +277,7 @@ export default function Sources() {
                         mt-3
                         max-w-xl
                         leading-7
-                        text-[#9CA3AF]
+                        text-[var(--c-text-muted)]
                     ">
                         يمكنك الاطلاع على طريقة تنظيم المصادر والأذكار
                         والمساهمة في تطوير OSRC Zikr.
@@ -291,15 +293,15 @@ export default function Sources() {
                             gap-2
                             rounded-xl
                             border
-                            border-[#6EE7B7]
+                            border-[var(--c-accent)]
                             px-6
                             py-3
                             font-medium
-                            text-[#6EE7B7]
+                            text-[var(--c-accent)]
                             transition-colors
                             duration-300
-                            hover:bg-[#6EE7B7]
-                            hover:text-[#0B1110]
+                            hover:bg-[var(--c-accent)]
+                            hover:text-[var(--c-on-accent)]
                         "
                     >
                         <FaGithub />

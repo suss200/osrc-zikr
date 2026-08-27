@@ -1,33 +1,150 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-ibm-plex-arabic);
-}
-
-
 @property --progress {
   syntax: "<percentage>";
   inherits: false;
   initial-value: 0%;
+}
+
+/* ===== Dark theme (default) ===== */
+
+:root {
+  --c-page: #0B1110;
+  --c-nav: #0E1614;
+  --c-card: #111A18;
+  --c-deep: #080C0B;
+  --c-elevated: #172420;
+  --c-hover-strong: #17221F;
+
+  --c-btn: #24332F;
+  --c-btn-hover: #30443E;
+  --c-btn-text: #F3F4F6;
+
+  --c-success: #166534;
+
+  --c-border: #24332F;
+  --c-border-soft: #1C2925;
+  --c-border-strong: #35443F;
+
+  --c-text: #F3F4F6;
+  --c-text-body: #D1D5DB;
+  --c-text-muted: #9CA3AF;
+  --c-text-dim: #6B7280;
+  --c-text-subtle: #a2adac;
+
+--c-accent: #6EE7B7;
+--c-accent-strong: #52C795;
+--c-accent-light: #86EFC5;
+--c-on-accent: #0B1110;
+--c-accent-10: rgba(110, 231, 183, 0.1);
+--c-accent-40: rgba(110, 231, 183, 0.4);
+
+
+--c-progress-track: #24332F;
+--c-progress-inner: #24332F;
+
+
+  --c-hero-title: #FFFFFF;
+  --c-track: #24332F;
+
+  --c-overlay: rgba(11, 17, 16, 0.8);
+  --c-grad-from: #0B1110;
+  --c-grad-via: rgba(11, 17, 16, 0.7);
+  --c-glow: rgba(110, 231, 183, 0.1);
+  --c-glass: rgba(14, 22, 20, 0.7);
+  --c-divider: rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* ===== Light green theme ===== */
+[data-theme="light"] {
+  --c-page: #ECFDF5;
+  --c-nav: #D1FAE5;
+  --c-card: #FFFFFF;
+  --c-deep: #F0FFF4;
+  --c-elevated: #E6FFF0;
+  --c-hover-strong: #D9FFE8;
+
+  --c-btn: rgba(36, 51, 47, 0.18);
+  --c-btn-hover: rgba(36, 51, 47, 0.30);
+  --c-btn-text: #0B1110;
+  --c-success: #166534;
+
+  --c-border: #A7F3D0;
+  --c-border-soft: #BBF7D0;
+  --c-border-strong: #86EFAC;
+
+  --c-text: #07120D;
+  --c-text-body: #0F2E22;
+  --c-text-muted: #14532D;
+  --c-text-dim: #166534;
+  --c-text-subtle: #15803D;
+
+  --c-accent: #66b59d;
+  --c-accent-strong: #55967f;
+  --c-accent-light: #4a8a74;
+  --c-on-accent: #FFFFFF;
+  --c-accent-10: rgba(102, 181, 157, 0.12);
+  --c-accent-40: rgba(94, 184, 158, 0.35);
+
+  --c-hero-title: #07120D;
+  --c-track: rgba(7, 18, 13, 0.12);
+
+  --c-overlay: rgba(236, 253, 245, 0.88);
+  --c-grad-from: #ECFDF5;
+  --c-grad-via: rgba(236, 253, 245, 0.7);
+  --c-glow: rgba(7, 18, 13, 0.06);
+  --c-glass: rgba(209, 250, 229, 0.85);
+  --c-divider: rgba(7, 18, 13, 0.10);
+
+  --c-progress-track: #A7F3D0;
+--c-progress-inner: #ECFDF5;
+}
+
+body {
+  background: var(--c-page);
+  color: var(--c-text);
+  font-family: var(--font-ibm-plex-arabic);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Logo switching: dark-logo in light mode */
+.logo-dark { display: block; }
+.logo-light { display: none; }
+[data-theme="light"] .logo-dark { display: none !important; }
+[data-theme="light"] .logo-light { display: block !important; }
+
+
+
+@keyframes azkar-morning {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes azkar-night {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.azkar-morning-change {
+  animation: azkar-morning 300ms ease-out;
+}
+
+.azkar-night-change {
+  animation: azkar-night 300ms ease-out;
 }
