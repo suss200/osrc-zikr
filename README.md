@@ -687,5 +687,3 @@ Built with Next.js for the Arabic-speaking community.
 
 </div>
 ```
-
-ده كده جاهز تنسخه كله وتحطه مكان `README.md`.
