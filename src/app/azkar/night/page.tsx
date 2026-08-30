@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import ScrollToTop from "@/components/scrollTop";
@@ -62,9 +63,15 @@ export default function NightPage() {
                                 azkar-night-change
                             "
                         >
-                            {azkar.map((zikr, index) => (
+                            {azkar.map((zikr) => (
                                 <ZikrItem
-                                    key={index}
+                                    key={zikr.id}
+                                    id={zikr.id}
+                                    category={
+                                        selectedType === 1
+                                            ? "night-full"
+                                            : "night-short"
+                                    }
                                     text={zikr.text}
                                     count={zikr.count}
                                     virtue={zikr.virtue}

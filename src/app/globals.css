@@ -59,47 +59,73 @@
 
 /* ===== Light green theme ===== */
 [data-theme="light"] {
-  --c-page: #ECFDF5;
-  --c-nav: #D1FAE5;
-  --c-card: #FFFFFF;
-  --c-deep: #F0FFF4;
-  --c-elevated: #E6FFF0;
-  --c-hover-strong: #D9FFE8;
+    --c-page: #ECFDF5;
 
-  --c-btn: rgba(36, 51, 47, 0.18);
-  --c-btn-hover: rgba(36, 51, 47, 0.30);
-  --c-btn-text: #0B1110;
-  --c-success: #166534;
+    --c-nav: #D1FAE5;
 
-  --c-border: #A7F3D0;
-  --c-border-soft: #BBF7D0;
-  --c-border-strong: #86EFAC;
+    --c-card: #FFFFFF;
 
-  --c-text: #07120D;
-  --c-text-body: #0F2E22;
-  --c-text-muted: #14532D;
-  --c-text-dim: #166534;
-  --c-text-subtle: #15803D;
+    --c-deep: #DFF7EA;
 
-  --c-accent: #66b59d;
-  --c-accent-strong: #55967f;
-  --c-accent-light: #4a8a74;
-  --c-on-accent: #FFFFFF;
-  --c-accent-10: rgba(102, 181, 157, 0.12);
-  --c-accent-40: rgba(94, 184, 158, 0.35);
+    --c-elevated: #D4F3E2;
 
-  --c-hero-title: #07120D;
-  --c-track: rgba(7, 18, 13, 0.12);
+    --c-hover-strong: #C8EED9;
 
-  --c-overlay: rgba(236, 253, 245, 0.88);
-  --c-grad-from: #ECFDF5;
-  --c-grad-via: rgba(236, 253, 245, 0.7);
-  --c-glow: rgba(7, 18, 13, 0.06);
-  --c-glass: rgba(209, 250, 229, 0.85);
-  --c-divider: rgba(7, 18, 13, 0.10);
+    --c-btn: rgba(36, 51, 47, 0.18);
 
-  --c-progress-track: #A7F3D0;
---c-progress-inner: #ECFDF5;
+    --c-btn-hover: rgba(36, 51, 47, 0.30);
+
+    --c-btn-text: #0B1110;
+
+    --c-success: #166534;
+
+    --c-border: #A7F3D0;
+
+    --c-border-soft: #BBF7D0;
+
+    --c-border-strong: #86EFAC;
+
+    --c-text: #07120D;
+
+    --c-text-body: #0F2E22;
+
+    --c-text-muted: #166534;
+
+    --c-text-dim: #166534;
+
+    --c-text-subtle: #15803D;
+
+    --c-accent: #66B59D;
+
+    --c-accent-strong: #55967F;
+
+    --c-accent-light: #4A8A74;
+
+    --c-on-accent: #FFFFFF;
+
+    --c-accent-10: rgba(102, 181, 157, 0.12);
+
+    --c-accent-40: rgba(94, 184, 158, 0.35);
+
+    --c-hero-title: #07120D;
+
+    --c-track: rgba(7, 18, 13, 0.12);
+
+    --c-overlay: rgba(236, 253, 245, 0.88);
+
+    --c-grad-from: #ECFDF5;
+
+    --c-grad-via: rgba(236, 253, 245, 0.7);
+
+    --c-glow: rgba(7, 18, 13, 0.06);
+
+    --c-glass: rgba(209, 250, 229, 0.85);
+
+    --c-divider: rgba(7, 18, 13, 0.10);
+
+    --c-progress-track: #A7F3D0;
+
+    --c-progress-inner: #ECFDF5;
 }
 
 body {

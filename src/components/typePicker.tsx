@@ -40,6 +40,7 @@ export default function TypePicker({
                     font-semibold
                     transition-all
                     duration-300
+                    cursor-pointer
                     ${
                         selected === 1
                             ? "bg-[var(--c-accent)] text-[var(--c-on-accent)]"
@@ -61,6 +62,7 @@ export default function TypePicker({
                     font-semibold
                     transition-all
                     duration-300
+                    cursor-pointer
                     ${
                         selected === 2
                             ? "bg-[var(--c-accent)] text-[var(--c-on-accent)]"

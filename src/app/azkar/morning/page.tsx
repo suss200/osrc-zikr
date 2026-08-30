@@ -24,7 +24,7 @@ export default function MorningPage() {
         <>
             <PageTransition>
                 <div className="min-h-screen bg-[var(--c-page)] transition-colors duration-300">
-                    <Header fixed/>
+                    <Header fixed />
 
                     <main
                         className="
@@ -63,9 +63,15 @@ export default function MorningPage() {
                                 azkar-night-change
                             "
                         >
-                            {azkar.map((zikr, index) => (
+                            {azkar.map((zikr) => (
                                 <ZikrItem
-                                    key={index}
+                                    key={zikr.id}
+                                    id={zikr.id}
+                                    category={
+                                        selectedType === 1
+                                            ? "morning-full"
+                                            : "morning-short"
+                                    }
                                     text={zikr.text}
                                     count={zikr.count}
                                     virtue={zikr.virtue}

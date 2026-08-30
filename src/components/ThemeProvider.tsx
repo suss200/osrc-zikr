@@ -1,44 +1,72 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+    createContext,
+    useContext,
+    useEffect,
+    useState,
+    ReactNode,
+} from "react";
 
 type Theme = "dark" | "light";
 
 interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+export function ThemeProvider({
+    children,
+}: {
+    children: ReactNode;
+}) {
+    const [theme, setThemeState] = useState<Theme>("dark");
 
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const t: Theme = saved === "light" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", t);
-    setTheme(t);
-  }, []);
+    useEffect(() => {
+        const saved = localStorage.getItem("theme");
 
-  const toggleTheme = () => {
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("theme", next);
-    document.documentElement.setAttribute("data-theme", next);
-  };
+        const currentTheme: Theme =
+            saved === "light" ? "light" : "dark";
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+        setThemeState(currentTheme);
+        document.documentElement.setAttribute(
+            "data-theme",
+            currentTheme
+        );
+    }, []);
+
+    const setTheme = (nextTheme: Theme) => {
+        setThemeState(nextTheme);
+        localStorage.setItem("theme", nextTheme);
+        document.documentElement.setAttribute(
+            "data-theme",
+            nextTheme
+        );
+    };
+
+    return (
+        <ThemeContext.Provider
+            value={{
+                theme,
+                setTheme,
+            }}
+        >
+            {children}
+        </ThemeContext.Provider>
+    );
 }
 
 export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    return { theme: "dark" as Theme, toggleTheme: () => {} };
-  }
-  return context;
+    const context = useContext(ThemeContext);
+
+    if (!context) {
+        return {
+            theme: "dark" as Theme,
+            setTheme: (_theme: Theme) => {},
+        };
+    }
+
+    return context;
 }

@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+
 import Image from "next/image";
-import ThemeToggle from "./themeToggle";
+
+import { FaGear } from "react-icons/fa6";
+
 import { useTheme } from "./ThemeProvider";
 
 type HeaderProps = {
@@ -10,9 +13,11 @@ type HeaderProps = {
 };
 
 export default function Header({ fixed = false }: HeaderProps) {
+
     const { theme } = useTheme();
 
     return (
+
         <header
             className={`
                 ${fixed ? "fixed" : "relative"}
@@ -23,6 +28,7 @@ export default function Header({ fixed = false }: HeaderProps) {
             `}
             dir="rtl"
         >
+
             <nav
                 className="
                     flex
@@ -36,7 +42,9 @@ export default function Header({ fixed = false }: HeaderProps) {
                     duration-300
                 "
             >
+
                 <Link href="/" className="py-2">
+
                     <Image
                         src={
                             theme === "dark"
@@ -49,9 +57,11 @@ export default function Header({ fixed = false }: HeaderProps) {
                         loading="eager"
                         className="h-auto w-[120px]"
                     />
+
                 </Link>
 
                 <div className="flex items-center gap-8">
+
                     <Link
                         href="/"
                         className="
@@ -78,9 +88,36 @@ export default function Header({ fixed = false }: HeaderProps) {
                         الأذكار
                     </Link>
 
-                    <ThemeToggle />
+                    <Link
+                        href="/settings"
+                        aria-label="الإعدادات"
+                        className="
+
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                rounded-xl
+                border
+                border-[var(--c-border)]
+                text-[var(--c-accent)]
+                transition-all
+                duration-300
+                hover:border-[var(--c-accent)]
+                hover:bg-[var(--c-accent-10)]
+                hover:text-[var(--c-accent-light)]
+            
+                        "
+                    >
+                        <FaGear className="text-lg" />
+                    </Link>
+
                 </div>
+
             </nav>
+
         </header>
+
     );
 }
