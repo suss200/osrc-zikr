@@ -10,9 +10,10 @@ import PageTransition from "@/components/pageTransition";
 export default function SleepPage() {
     return (
         <>
+        <Header fixed />
             <PageTransition>
                 <div className="min-h-screen bg-[var(--c-page)] transition-colors duration-300">
-                    <Header fixed />
+                    
 
                     <main
                         className="

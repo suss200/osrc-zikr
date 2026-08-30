@@ -22,9 +22,10 @@ export default function MorningPage() {
 
     return (
         <>
+        <Header fixed />
             <PageTransition>
                 <div className="min-h-screen bg-[var(--c-page)] transition-colors duration-300">
-                    <Header fixed />
+                    
 
                     <main
                         className="
