@@ -1,9 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
+
 import { FaShareNodes } from "react-icons/fa6";
 
-import {markZikrCompleted,ZikrCategory,} from "@/lib/zikrStats";
+import {
+    markZikrCompleted,
+    ZikrCategory,
+} from "@/lib/zikrStats";
 
 type ZikrItemProps = {
     id: string;
@@ -15,30 +19,27 @@ type ZikrItemProps = {
 };
 
 export default function ZikrItem(props: ZikrItemProps) {
-
     const shareCardRef = useRef<HTMLDivElement>(null);
 
     const [currentCount, setCurrentCount] = useState(0);
 
+    const onClick = () => {
+        if (currentCount < props.count) {
+            const nextCount = currentCount + 1;
 
-const onClick = () => {
-    if (currentCount < props.count) {
-        const nextCount = currentCount + 1;
+            setCurrentCount(nextCount);
 
-        setCurrentCount(nextCount);
-
-        if (nextCount === props.count) {
-            markZikrCompleted(
-                props.id,
-                props.category
-            );
+            if (nextCount === props.count) {
+                markZikrCompleted(
+                    props.id,
+                    props.category
+                );
+            }
         }
-    }
-};
+    };
 
-
-
-    const progress = (currentCount / props.count) * 100;
+    const progress =
+        (currentCount / props.count) * 100;
 
     const resetCount = () => {
         setCurrentCount(0);
@@ -47,22 +48,34 @@ const onClick = () => {
     const shareZikr = async () => {
         if (!shareCardRef.current) return;
 
+        const shareCard = shareCardRef.current;
+
         try {
             const html2canvas = (
                 await import("html2canvas")
             ).default;
 
+            /*
+             * نظهر كارت المشاركة مؤقتًا.
+             * هو خارج الـlayout الطبيعي لأنه fixed،
+             * لكن مش موجود على بعد -99999px.
+             */
+            shareCard.style.visibility = "visible";
+
             const canvas = await html2canvas(
-                shareCardRef.current,
+                shareCard,
                 {
                     scale: 2,
-                    backgroundColor: getComputedStyle(
-                        shareCardRef.current
-                    ).backgroundColor,
+                    backgroundColor:
+                        getComputedStyle(
+                            shareCard
+                        ).backgroundColor,
                     useCORS: true,
                     logging: false,
                 }
             );
+
+            shareCard.style.visibility = "hidden";
 
             const blob = await new Promise<Blob | null>(
                 (resolve) =>
@@ -111,6 +124,11 @@ const onClick = () => {
                 URL.revokeObjectURL(url);
             }
         } catch (error) {
+            if (shareCardRef.current) {
+                shareCardRef.current.style.visibility =
+                    "hidden";
+            }
+
             console.error(
                 "Share failed:",
                 error
@@ -120,6 +138,7 @@ const onClick = () => {
 
     return (
         <>
+            {/* Zikr card */}
             <div
                 className="
                     w-full
@@ -287,13 +306,18 @@ const onClick = () => {
                 </div>
             </div>
 
+            {/* Share image */}
             <div
                 ref={shareCardRef}
+                style={{
+                    visibility: "hidden",
+                }}
                 className="
                     fixed
-                    left-[-99999px]
+                    left-0
                     top-0
-                    w-full
+                    z-[-1]
+                    w-[600px]
                     rounded-2xl
                     border-0
                     bg-[var(--c-card)]
