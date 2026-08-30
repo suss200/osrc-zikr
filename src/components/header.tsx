@@ -15,16 +15,16 @@ export default function Header({ fixed = false }: HeaderProps) {
     const { theme } = useTheme();
 
     return (
-<header
-    className={`
-        ${fixed ? "fixed" : "relative"}
-        inset-x-0
-        top-0
-        z-50
-        w-full
-    `}
-    dir="rtl"
->
+        <header
+            className={`
+                ${fixed ? "fixed" : "relative"}
+                inset-x-0
+                top-0
+                z-50
+                w-full
+            `}
+            dir="rtl"
+        >
             <nav
                 className="
                     flex
@@ -40,7 +40,10 @@ export default function Header({ fixed = false }: HeaderProps) {
                     md:px-9
                 "
             >
-                <Link href="/" className="shrink-0 py-2">
+                <Link
+                    href="/"
+                    className="shrink-0 py-2"
+                >
                     <Image
                         src={
                             theme === "dark"
@@ -65,8 +68,8 @@ export default function Header({ fixed = false }: HeaderProps) {
                         flex
                         shrink-0
                         items-center
-                        gap-3
-                        sm:gap-5
+                        gap-5
+                        sm:gap-6
                         md:gap-8
                     "
                 >
@@ -74,12 +77,12 @@ export default function Header({ fixed = false }: HeaderProps) {
                         href="/"
                         className="
                             py-2
-                            text-sm
+                            text-base
                             text-[var(--c-text)]
                             transition-colors
                             duration-300
                             hover:text-[var(--c-accent)]
-                            sm:text-base
+                            sm:text-[17px]
                         "
                     >
                         الرئيسية
@@ -89,12 +92,12 @@ export default function Header({ fixed = false }: HeaderProps) {
                         href="/azkar-categories"
                         className="
                             py-2
-                            text-sm
+                            text-base
                             text-[var(--c-text)]
                             transition-colors
                             duration-300
                             hover:text-[var(--c-accent)]
-                            sm:text-base
+                            sm:text-[17px]
                         "
                     >
                         الأذكار
