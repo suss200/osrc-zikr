@@ -33,7 +33,7 @@ export default function RootLayout({
             suppressHydrationWarning
             className={`${ibmPlexSansArabic.variable} h-full scroll-smooth antialiased`}
         >
-            <body className="min-h-full flex flex-col">
+            <body className="min-h-full flex flex-col overflow-x-hidden">
                 <ThemeProvider>
                     <Loading />
 
