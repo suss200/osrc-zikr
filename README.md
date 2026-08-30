@@ -39,7 +39,7 @@ A simple, modern and privacy-focused web experience designed to make daily Azkar
 
 > Make daily Azkar accessible through a modern, calm and distraction-free experience.
 
-The project combines traditional Islamic content with a modern web interface, providing users with categorized Azkar, repetition tracking and references in one place.
+The project combines traditional Islamic content with a modern web interface, providing users with categorized Azkar, repetition tracking, daily statistics and references in one place.
 
 OSRC Zikr is designed primarily for Arabic-speaking users, with an **Arabic-first RTL interface** throughout the application.
 
@@ -52,6 +52,10 @@ OSRC Zikr aims to provide something different:
 * A clean and modern Arabic interface
 * Simple navigation between Azkar categories
 * Interactive repetition tracking
+* Separate full and short Azkar collections
+* Daily progress statistics
+* Seven-day activity overview
+* Per-category progress tracking
 * References for religious content
 * Responsive design for different screen sizes
 * No unnecessary accounts or configuration
@@ -83,6 +87,7 @@ The project intentionally keeps the experience simple instead of adding unnecess
 
 <table>
 <tr>
+
 <td width="50%" valign="top">
 
 ### Azkar Categories
@@ -98,9 +103,51 @@ Organized categories make it easier to find the Azkar you need throughout the da
 Interactive counters help you keep track of how many times each Zikr has been completed.
 
 </td>
+
 </tr>
 
 <tr>
+
+<td width="50%" valign="top">
+
+### Full & Short Collections
+
+Morning and evening Azkar are available in separate full and short collections, allowing users to choose the experience that fits them.
+
+</td>
+
+<td width="50%" valign="top">
+
+### Daily Statistics
+
+Track completed Azkar for the current day with separate progress for morning, evening and sleep categories, including full and short collections.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="50%" valign="top">
+
+### Seven-Day Overview
+
+Review activity across the last seven days and select individual days to inspect their detailed progress.
+
+</td>
+
+<td width="50%" valign="top">
+
+### Local Progress
+
+Zikr completion data is stored locally in the browser, so the core progress system does not require an account or database.
+
+</td>
+
+</tr>
+
+<tr>
+
 <td width="50%" valign="top">
 
 ### References
@@ -116,9 +163,11 @@ Each Zikr can include its source, reference and relevant information about its a
 The entire interface is designed around Arabic content and RTL navigation.
 
 </td>
+
 </tr>
 
 <tr>
+
 <td width="50%" valign="top">
 
 ### Responsive
@@ -134,6 +183,27 @@ The interface adapts to desktop, tablet and mobile screens.
 The core experience does not require a database or external Azkar API.
 
 </td>
+
+</tr>
+
+<tr>
+
+<td width="50%" valign="top">
+
+### Website Analytics
+
+The production website uses Vercel Analytics to understand website usage and improve the experience.
+
+</td>
+
+<td width="50%" valign="top">
+
+### Open Source
+
+The project is publicly available under the MIT License and can be studied, modified and self-hosted.
+
+</td>
+
 </tr>
 </table>
 
@@ -151,6 +221,7 @@ OSRC Zikr is built using a modern and lightweight web stack.
 
 <table>
 <tr>
+
 <td align="center" width="140">
 
 <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" width="42">
@@ -192,6 +263,7 @@ OSRC Zikr is built using a modern and lightweight web stack.
 <sub>Type Safety</sub>
 
 </td>
+
 </tr>
 </table>
 
@@ -201,6 +273,7 @@ OSRC Zikr is built using a modern and lightweight web stack.
 
 <table>
 <tr>
+
 <td align="center" width="140">
 
 <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="42">
@@ -228,15 +301,17 @@ OSRC Zikr is built using a modern and lightweight web stack.
 <sub>UI Icons</sub>
 
 </td>
+
 </tr>
 </table>
 
-### Deployment
+### Deployment & Analytics
 
 <br>
 
 <table>
 <tr>
+
 <td align="center" width="140">
 
 <img src="https://cdn.simpleicons.org/vercel/FFFFFF" width="42">
@@ -250,6 +325,21 @@ OSRC Zikr is built using a modern and lightweight web stack.
 <sub>Deployment</sub>
 
 </td>
+
+<td align="center" width="140">
+
+<img src="https://cdn.simpleicons.org/vercel/FFFFFF" width="42">
+
+<br>
+
+<b>Vercel Analytics</b>
+
+<br>
+
+<sub>Website Analytics</sub>
+
+</td>
+
 </tr>
 </table>
 
@@ -278,11 +368,16 @@ osrc-zikr/
 │   │   ├── azkar-categories/
 │   │   └── sources/
 │   │
-│   └── components/
-│       ├── Header.tsx
-│       ├── Footer.tsx
-│       ├── ZikrItem.tsx
-│       └── ScrollToTop.tsx
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── ZikrItem.tsx
+│   │   ├── ZikrStats.tsx
+│   │   └── ScrollToTop.tsx
+│   │
+│   └── lib/
+│       ├── zikrStats.ts
+│       └── zikrStatsCalculator.ts
 │
 ├── LICENSE
 ├── package.json
@@ -407,6 +502,7 @@ A typical Zikr entry contains information such as:
 
 ```ts
 {
+    id: "morning-full-01",
     text: "...",
     count: 3,
     virtue: "...",
@@ -425,7 +521,36 @@ Because of this, the core application currently does not require a database.
 | UI configuration | Application source           |
 | User accounts    | Not required                 |
 | User progress    | Local/client-side experience |
+| Daily statistics | Local/client-side experience |
 | Database         | Not required                 |
+
+### Progress & Statistics
+
+Each Zikr has a stable `id`, allowing completion to be tracked independently from the Zikr text.
+
+The statistics system keeps daily completion data separated by category:
+
+```text
+morning-full
+morning-short
+night-full
+night-short
+sleep
+```
+
+Completion records are grouped by date and stored in the browser using `localStorage`.
+
+This allows the application to calculate:
+
+* Today's completed Azkar
+* Remaining Azkar for the day
+* Separate progress for full and short collections
+* Activity across previous days
+* The last seven days of activity
+* Current activity streak
+* Longest activity streak
+
+The statistics interface keeps full and short morning/evening collections separate instead of combining their progress.
 
 Future versions may introduce persistent user features such as accounts, synchronization, favorites or personalized settings. Those features may require a dedicated database.
 
@@ -480,6 +605,10 @@ The current core experience does not require users to:
 * Connect an external Azkar API
 * Use a database
 
+Zikr progress and daily statistics are stored locally in the user's browser and are not required to be sent to a backend for the core experience.
+
+The production website uses Vercel Analytics for website usage analytics.
+
 When self-hosting OSRC Zikr, the server administrator is responsible for the infrastructure, server logs and any additional services added to the deployment.
 
 ---
@@ -493,21 +622,27 @@ The long-term goal is to build a reliable, accessible and open platform for dail
 The project focuses on:
 
 **Accessibility**
+
 Making daily Azkar easy to access from any modern device.
 
 **Simplicity**
+
 Keeping the interface focused on what actually matters.
 
 **Transparency**
+
 Keeping the source code publicly available so the implementation can be inspected.
 
 **Accuracy**
+
 Providing references alongside religious content whenever possible.
 
 **Privacy**
+
 Avoiding unnecessary collection of user information.
 
 **Open Source**
+
 Building the project in the open and allowing others to study and use the code.
 
 ---
@@ -551,3 +686,6 @@ Built with Next.js for the Arabic-speaking community.
   ·   <a href="#osrc-zikr">Back to top</a>
 
 </div>
+```
+
+ده كده جاهز تنسخه كله وتحطه مكان `README.md`.
