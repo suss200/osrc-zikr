@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
-
 import "./globals.css";
-
 import Loading from "./loader";
-
 import { ThemeProvider } from "@/components/ThemeProvider";
-
 import { Analytics } from "@vercel/analytics/next";
+import InstallPrompt from "@/components/InstallPrompt";
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
     variable: "--font-ibm-plex-arabic",
@@ -36,6 +32,8 @@ export default function RootLayout({
             <body className="min-h-full flex flex-col overflow-x-hidden">
                 <ThemeProvider>
                     <Loading />
+
+                    <InstallPrompt />
 
                     {children}
 
