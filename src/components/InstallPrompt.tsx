@@ -12,7 +12,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 const DISMISS_KEY = "osrc-zikr-install-dismissed";
-const DISMISS_DURATION = 7 * 24 * 60 * 60 * 1000;
+const DISMISS_DURATION = 24 * 60 * 60 * 1000;
 
 function isStandalone(): boolean {
     if (typeof window === "undefined") {
